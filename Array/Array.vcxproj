@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8197a245-25e3-4340-af15-5c71b06820e6}</ProjectGuid>
-    <RootNamespace>InlineFunction</RootNamespace>
+    <ProjectGuid>{21d04877-78a5-4840-a445-26881f8bc528}</ProjectGuid>
+    <RootNamespace>Array</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
