@@ -1,5 +1,18 @@
 ﻿#include <iostream>
 
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+#include <cstring>
+
+#ifdef _DEBUG
+#define new new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+// Replace _NORMAL_BLOCK with _CLIENT_BLOCK if you want the
+// allocations to be of _CLIENT_BLOCK type
+#else
+#define new new
+#endif
+
 // 클래스 내부에서 문자열을 다루기
 class Player 
 {
@@ -25,26 +38,36 @@ public:
 
 		// 1. 저장 공간 확보.
 		// -> 확보할 공간의 크기를 알아야 함.
-		size_t length = strlen(inName) + 1; // 무조건 null 문자가 나올때까지 순서대로 검사하기에 성능 안좋음
-											// null문자 할당을 위해 1 더함
-		name = new char[length];
+		// size_t: 부호 없는 정수형
+		// typedef unsigned _int64 size_t; (x64)
+		// typedef unsigned int size_t; (x86)
+		size_t length = strlen(inName); // 무조건 null 문자가 나올때까지 순서대로 검사하기에 성능 안좋음
+		// strlen()은 null(\0)이 나올때까지만 크기를 구하니 문자를 넣을땐 바이트 1 추가해야함
+											
+		name = new char[length + 1]; // null('\0')문자 할당을 위해 +1
+
+		// 소멸자 없으면 메모리 릭 발생!!
+		// C:\Workspace\CppBasic\CPlusPlus\String\Main.cpp(46) : {164} normal block at 0x00000279D97E4EA0, 8 bytes long.
+		// Data: < JisungA > 4A 69 73 75 6E 67 41 00
+		// Object dump complete.
 
 		// 2. 문자열 복사. char의 개수는 바이트의 크기와 같으니 자동 처리됨
-
 		// 기본 메커니즘은 memcpy() 와 같다
-		strcpy_s(name, length, inName);
+		// 문자열 복사 전용 안전 함수인 strcpy_s를 사용
+		strcpy_s(name, length + 1, inName);
 	}
 
-	// 소멸자 -> 메모리 해제를 위해
-	// 객체가 해제될 때 실행
-	~Player() 
-	{
-		//if(name != nullptr)
-		if (name) // 0이 아닌 나머지는 다 true이다. -1, 100, 1 다 true이다. 0만 false.
-		{
-			delete[] name;
-		}
-	}
+	// //소멸자 -> 메모리 해제를 위해
+	// //객체가 해제될 때 실행
+	//~Player() // 소멸자가 없으면 delete하지 않아 메모리 릭 발생!
+	//{
+	//	//if(name != nullptr)
+	//	if (name) // 0이 아닌 나머지는 다 true이다. -1, 100, 1 다 true이다. 0만 false.
+	//	{
+	//		delete[] name;
+
+	//	}
+	//}
 	
 private:
 	// 문자열을 저장할 변수
@@ -54,6 +77,8 @@ private:
 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	// 문자열
 	// 문자열은 불변성을 가짐 -> const를 붙여야함!!
 	const char* testString = "Jisung"; // 원시 포인터를 가진 문자열
