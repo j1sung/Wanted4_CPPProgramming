@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-//#include <string>
+//#include <string.h>
 #include <windows.h>
 
 #define MYTEXT(value) L##value; // ##은 파라미터 두개 붙이기
@@ -38,6 +38,7 @@ public:
 	// 반환형이 없고, 클래스 이름과 동일
 	Player(const char* inName) 
 	{
+		Test();
 		// 문자열 복사
 		// name = inName; -> 이건 안된다.
 
@@ -61,18 +62,22 @@ public:
 		// 문자열 복사 전용 안전 함수인 strcpy_s를 사용
 		strcpy_s(name, length + 1, inName);
 	}
+	void Test()
+	{
+		int a;
+	}
 
-	// //소멸자 -> 메모리 해제를 위해
-	// //객체가 해제될 때 실행
-	//~Player() // 소멸자가 없으면 delete하지 않아 메모리 릭 발생!
-	//{
-	//	//if(name != nullptr)
-	//	if (name) // 0이 아닌 나머지는 다 true이다. -1, 100, 1 다 true이다. 0만 false.
-	//	{
-	//		delete[] name;
+	 //소멸자 -> 메모리 해제를 위해
+	 //객체가 해제될 때 실행
+	~Player() // 소멸자가 없으면 delete하지 않아 메모리 릭 발생!
+	{
+		//if(name != nullptr)
+		if (name) // 0이 아닌 나머지는 다 true이다. -1, 100, 1 다 true이다. 0만 false.
+		{
+			delete[] name;
 
-	//	}
-	//}
+		}
+	}
 	
 private:
 	// 문자열을 저장할 변수
