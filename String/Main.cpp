@@ -1,4 +1,9 @@
 ﻿#include <iostream>
+//#include <string>
+#include <windows.h>
+
+#define MYTEXT(value) L##value; // ##은 파라미터 두개 붙이기
+#define MYTEST(value1, value2) value1##value2; // ##은 파라미터 두개 무식하게 붙이기
 
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -89,7 +94,19 @@ int main()
 	std::cout << buffer << "\n";
 
 	// 객체 기반으로 문자열 사용
+	// 명시적으로 타입 이름을 저장하지 않으면 읽어낼 수 없다.
+	// 리플렉션으로 추가해야,,,
 	Player player("JisungA");
+
+	// wide-character.
+	// wchar_t에서는 L을 문자열 앞에 붙여야 한다!
+	//const wchar_t* wideString = L"Hello wide string";
+	const wchar_t* wideString = MYTEXT("Hello wide string"); // 원래 TEXT를 씀
+
+	// wide-character는 구분을 위해 출력에 wcout/입력에 wcin으로 써야함
+	std::wcout << wideString << TEXT("\n"); 
+
+	auto test = MYTEST(10, 20);
 
 	std::cin.get();
 	return 0;
