@@ -10,6 +10,7 @@ void PrintArray(int* array, int length) // 포인터에선 배열 크기 추출 불가로 크기
 	}
 }
 
+
 int main()
 {
 	// 배열 선언
