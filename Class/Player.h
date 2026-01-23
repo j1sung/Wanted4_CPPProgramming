@@ -53,6 +53,7 @@ public:
 	//Player() = default;
 	//~Player() = default;
 	Player();
+	Player(const char* inName);
 	~Player();
 
 
@@ -69,4 +70,7 @@ private:
 	int y = 0;
 	int speed = 0;
 
+	// 이름 값(문자열).
+	//char name[10] = {}; // 이거도 가능
+	char* name = nullptr; // 힙으로 해보기
 };

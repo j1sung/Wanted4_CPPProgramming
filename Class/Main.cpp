@@ -2,6 +2,10 @@
 
 #include "Player.h"
 
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 //// 클래스 조작 함수
 //void Move(Player& player, int x, int y) 
 //{
@@ -11,6 +15,8 @@
 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	// 인스턴스/객체
 	Player player1;
 	//player1.SetX(5);
@@ -20,7 +26,7 @@ int main()
 
 	// 힙
 	// 1차 포인터
-	Player* player2 = new Player();
+	Player* player2 = new Player("Jisung"); // 2번째 생성자 사용해봄
 	player2->Move(3, 1);
 	(*player2).Move(3, 1);
 
