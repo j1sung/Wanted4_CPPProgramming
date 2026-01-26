@@ -59,6 +59,7 @@ int main()
 	//entity1.Add(entity2);
 	//entity.ShowEntity() 
 	// -> 이건 friend는 멤버함수가 아니고 외부함수에 정의하고 그걸 객체에서 friend로 접근하니 안됨
+	//Entity::ShowEntity(entity); // -> 이건 this가 들어가지 못해서
 	ShowEntity(entity);
 
 	std::cin.get();
