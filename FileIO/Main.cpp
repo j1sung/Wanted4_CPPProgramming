@@ -1,8 +1,27 @@
 #include <iostream>
-
+#include "Player.h"
 
 int main()
 {
+
+	// 객체를 파일에 쓰기 (파일 직렬화).
+	//Player player(3, 200, 30.0f);
+	Player player;
+	//player.Serialize("PlayerData.txt");
+	player.Deserialize("PlayerData.txt");
+
+
+	// 문자열 입출력.
+	int score = 100;
+	float pi = 3.141592f;
+
+	char formatString[256] = {};
+	sprintf_s(formatString, 256, "score=%d pi=%f", score, pi);
+
+	int intValue = 0;
+	float floatValue = 0.0f;
+	sscanf_s(formatString, "score=%d pi=%f", &intValue, &floatValue);
+
 	FILE* file = nullptr;
 	// &file은 파일을 다룰 수 있는 포인터일뿐, 파일 자체가 아니다.
 	fopen_s(&file, "Test.txt", "rb"); // 파일 읽기 실패하면 주소값을 안줌
