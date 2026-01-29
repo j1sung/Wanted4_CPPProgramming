@@ -1,8 +1,12 @@
 #include <iostream>
 #include "Player.h"
+#include <vector>
 
 int main()
 {
+	std::vector<int> array;
+	array.push_back(10); // lvalue reference 였는데 RValue reference도 받게 바뀜
+	array.emplace_back(10); // RValue reference를 받아 move 지원 -> 이게 RValue는 좋음
 
 	// 객체를 파일에 쓰기 (파일 직렬화).
 	//Player player(3, 200, 30.0f);
