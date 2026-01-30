@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileIO", "FileIO\FileIO.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FunctionPointer", "FunctionPointer\FunctionPointer.vcxproj", "{7B59B504-B4B0-47E1-AC12-C5481E5AEBB2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UniquePointer", "UniquePointer\UniquePointer.vcxproj", "{E21BB70F-A39C-4581-8354-B729BEFFEE0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +183,14 @@ Global
 		{7B59B504-B4B0-47E1-AC12-C5481E5AEBB2}.Release|x64.Build.0 = Release|x64
 		{7B59B504-B4B0-47E1-AC12-C5481E5AEBB2}.Release|x86.ActiveCfg = Release|Win32
 		{7B59B504-B4B0-47E1-AC12-C5481E5AEBB2}.Release|x86.Build.0 = Release|Win32
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Debug|x64.ActiveCfg = Debug|x64
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Debug|x64.Build.0 = Debug|x64
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Debug|x86.ActiveCfg = Debug|Win32
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Debug|x86.Build.0 = Debug|Win32
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Release|x64.ActiveCfg = Release|x64
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Release|x64.Build.0 = Release|x64
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Release|x86.ActiveCfg = Release|Win32
+		{E21BB70F-A39C-4581-8354-B729BEFFEE0B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
